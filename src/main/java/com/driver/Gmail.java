@@ -19,8 +19,8 @@ public class Gmail extends Email {
          }
      }
 
-        List<Mail> inbox;
-        List<Mail> trash;
+        private List<Mail> inbox;
+        private List<Mail> trash;
     int inboxCapacity; //maximum number of mails inbox can store
     //Inbox: Stores mails. Each mail has date (Date), sender (String), message (String). It is guaranteed that message is distinct for all mails.
     //Trash: Stores mails. Each mail has date (Date), sender (String), message (String)
@@ -30,21 +30,14 @@ public class Gmail extends Email {
         this.inbox = new LinkedList<>();
         this.trash = new LinkedList<>();
     }
-
-    public Gmail(String emailId) {
-        super(emailId);
-        this.inboxCapacity = Integer.MAX_VALUE;
-        this.inbox = new LinkedList<>();
-        this.trash = new LinkedList<>();
-    }
-
     public void receiveMail(Date date, String sender, String message){
         // If the inbox is full, move the oldest mail in the inbox to trash and add the new mail to inbox.
         // It is guaranteed that:
         // 1. Each mail in the inbox is distinct.
         // 2. The mails are received in non-decreasing order. This means that the date of a new mail is greater than equal to the dates of mails received already.
-        if(inbox.size() >= inboxCapacity){
-            trash.add(inbox.remove(0));
+        if(inbox.size() == inboxCapacity){
+            trash.add(inbox.get(0));
+            inbox.remove(0);
         }
         inbox.add(new Mail(date,sender,message));
     }
@@ -57,6 +50,7 @@ public class Gmail extends Email {
             if(m.message.equals(message)){
                 trash.add(m);
                 inbox.remove(i);
+                break;
             }
         }
     }

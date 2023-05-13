@@ -26,14 +26,14 @@ public class Email {
         // 4. It contains at least one digit
         // 5. It contains at least one special character. Any character apart from alphabets and digits is a special character
         
-        if(!(oldPassword.equals(password))) return;
-        if(newPassword.length() < 8) return;
-        boolean isValid = isNewPasswordValid(newPassword);
-
-        if(isValid) this.password = newPassword;
+        if(oldPassword.equals(password)){
+            boolean isValid = isNewPasswordValid(newPassword);
+            if(isValid) this.password = newPassword;
+        }
     }
 
     private boolean isNewPasswordValid(String newPassword) {
+        if(newPassword.length() > 8) return false;
         boolean upperCase = false, lowerCase = false, digit = false, splCh = false;
 
         for (int i = 0; i < newPassword.length(); i++) {
