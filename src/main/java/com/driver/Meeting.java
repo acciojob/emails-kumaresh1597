@@ -20,11 +20,4 @@ public class Meeting {
         return endTime;
     }
 
-    public static Comparator<Meeting> startTimeCompare = new Comparator<Meeting>() {
-        @Override
-        public int compare(Meeting o1, Meeting o2) {
-            int i = o1.startTime.compareTo(o2.startTime);
-            return i;
-        }
-    };
 }
