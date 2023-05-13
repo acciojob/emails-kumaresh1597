@@ -33,7 +33,7 @@ public class Email {
     }
 
     private boolean isNewPasswordValid(String newPassword) {
-        if(newPassword.length() > 8) return false;
+        if(newPassword.length() < 8) return false;
         boolean upperCase = false, lowerCase = false, digit = false, splCh = false;
 
         for (int i = 0; i < newPassword.length(); i++) {
