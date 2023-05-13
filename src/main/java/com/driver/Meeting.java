@@ -1,7 +1,6 @@
 package com.driver;
 
 import java.time.LocalTime;
-import java.util.Comparator;
 
 public class Meeting {
     private LocalTime startTime;
@@ -15,7 +14,6 @@ public class Meeting {
     public LocalTime getStartTime() {
         return startTime;
     }
-
     public LocalTime getEndTime() {
         return endTime;
     }
