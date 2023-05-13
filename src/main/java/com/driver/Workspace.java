@@ -44,19 +44,6 @@ public class Workspace extends Gmail{
                 }
             }
         }
-//        Collections.sort(calendar,Meeting.startTimeCompare);
-//        int count = 0;
-//        if(!(calendar.isEmpty())) {
-//            count = 1;
-//            LocalTime t = calendar.get(0).getEndTime();
-//            for (int i = 1; i < calendar.size(); i++) {
-//                Meeting m = calendar.get(i);
-//                if (m.getStartTime().isAfter(t)) {
-//                    count++;
-//                    t = m.getEndTime();
-//                }
-//            }
-//        }
         return count;
     }
 }
