@@ -43,6 +43,7 @@ public class Email {
             else if(ch >= '0' && ch <= '9') digit = true;
             else splCh = true;
         }
-        return upperCase && lowerCase && digit && splCh;
+        if(upperCase && lowerCase && digit && splCh) return true;
+        return false;
     }
 }
